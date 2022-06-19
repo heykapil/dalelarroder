@@ -1,6 +1,6 @@
 import Link from '@/components/Link'
-import { ReactElement, useContext, useEffect, useRef } from 'react'
-import { renderCanvas } from './renderCanvas'
+import { ReactElement, useContext, useRef } from 'react'
+import Canvas from './Canvas'
 import { ScrollContext } from './ScrollObserver'
 
 export default function Hero(): ReactElement {
@@ -15,12 +15,9 @@ export default function Hero(): ReactElement {
     progress = Math.min(1, scrollY / elContainer.clientHeight)
   }
 
-  useEffect(() => {
-    renderCanvas()
-  }, [])
-
   return (
     <div>
+      <Canvas />
       <h3 className="sr-only">
         Hello I'm Dale Larroder, a Software Engineer / Full Stack Developer
       </h3>
@@ -62,7 +59,7 @@ export default function Hero(): ReactElement {
           </div>
         </div>
       </div>
-      <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas>
+      {/* <canvas className="bg-skin-base pointer-events-none absolute inset-0" id="canvas"></canvas> */}
     </div>
   )
 }
